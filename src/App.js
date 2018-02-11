@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import firebase from 'firebase';
 
 import { Header } from './components/common';
+import LoginForm from './components/LoginForm';
 
 class App extends Component {
   componentWillMount() {
-    firebase.initializeApp({
+      firebase.initializeApp({
       apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
       authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
       databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
@@ -20,7 +21,7 @@ class App extends Component {
     return (
       <View>
         <Header headerText='Authentication' />
-        <Text>Auth App</Text>
+        <LoginForm />
       </View>
     );
   }
