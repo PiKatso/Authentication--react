@@ -8,10 +8,10 @@ const Input = ({ label, value, onChangeText }) => {
     <View style={containerStyle}>
       <Text style={labelStyle}>{label}</Text>
       <TextInput
+        autoCorrect={false}
         style={inputStyle}
         value={value}
         onChangeText={onChangeText}
-        style={{ height:20, width:100 }}
       />
     </View>
   );
