@@ -16,7 +16,7 @@ class LoginForm extends Component {
       .catch(() => {
         firebase.auth().createUserWithEmailAndPassword(email, password)
           .catch(() => {
-            this.setState({error: 'Authentication Failed.'});
+            this.setState({ error: 'Authentication Failed.' });
           });
       });
   }
@@ -25,7 +25,6 @@ class LoginForm extends Component {
     if (this.state.loading) {
       return <Spinner size="small" />;
     }
-    // this could be an if else statement also/as an alternative form of writing this
 
     return (
       <Button onPress={this.onButtonPress.bind(this)}>
@@ -68,12 +67,12 @@ class LoginForm extends Component {
   }
 }
 
-const styles ={
+const styles = {
   errorTextStyle: {
     color: 'red',
     alignSelf: 'center',
     fontSize: 20
   }
-}
+};
 
 export default LoginForm;
