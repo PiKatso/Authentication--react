@@ -21,6 +21,18 @@ class LoginForm extends Component {
       });
   }
 
+  renderButton() {
+    if (this.state.loading) {
+      return <Spinner size="small" />;
+    }
+    // this could be an if else statement also/as an alternative form of writing this
+
+    return (
+      <Button onPress={this.onButtonPress.bind(this)}>
+      Login
+      </Button>
+    );
+  }
 
   render() {
     return (
@@ -49,9 +61,7 @@ class LoginForm extends Component {
         </Text>
 
         <CardSection>
-          <Button onPress={this.onButtonPress.bind(this)}>
-            Login
-          </Button>
+          {this.renderButton()}
         </CardSection>
       </Card>
     );
