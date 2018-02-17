@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import firebase from 'firebase';
 
-import { Header } from './components/common';
+import { Header, Button } from './components/common';
 import LoginForm from './components/LoginForm';
 
 import { REACT_NATIVE_Config }from '../config.env';
@@ -14,7 +14,7 @@ class App extends Component {
     firebase.initializeApp(REACT_NATIVE_Config);
 
     //this will watch the firebase auth state change and change user loggedIn state accordingly
-    firebase.auth().onAuthStateChange((user) => {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ loggedIn: true });
       } else {
@@ -23,11 +23,23 @@ class App extends Component {
     });
   }
 
+  renderContent() {
+    if (this.state.loggedIn) {
+      return (
+        <Button>
+          Log Out
+        </Button>
+      );
+    }
+
+    return <LoginForm />
+  }
+
   render () {
     return (
       <View>
         <Header headerText='Authentication' />
-        <LoginForm />
+        {this.renderContent()}
       </View>
     );
   }
