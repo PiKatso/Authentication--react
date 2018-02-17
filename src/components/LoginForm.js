@@ -31,7 +31,6 @@ class LoginForm extends Component {
 
   onLoginSuccess() {
     // clears out any error messages, cleans out form, reflect loading state false.
-    // Needs to essentially reset the states.
     this.setState({
       email: '',
       password: '',
