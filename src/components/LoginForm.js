@@ -56,6 +56,7 @@ class LoginForm extends Component {
     return (
       <Card>
         <CardSection>
+        // Controlled component
           <Input
             label="Email"
             placeholder="user@gmail.com"
